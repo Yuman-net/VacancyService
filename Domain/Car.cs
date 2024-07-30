@@ -5,6 +5,7 @@
 namespace Domain
 {
     using Domain.Abstract;
+    using Domain.Enums;
 
     /// <summary>
     /// Автомобиль.
@@ -30,5 +31,20 @@ namespace Domain
         /// Количество собственников.
         /// </summary>
         public int CountOwners { get; set; }
+
+        /// <summary>
+        /// Тип кузова.
+        /// </summary>
+        public BodyTypeEnum BodyType { get; set; }
+
+        /// <summary>
+        /// Тип трансмиссии.
+        /// </summary>
+        public TransmissionTypeEnum TransmissionType { get; set; }
+
+        /// <summary>
+        /// Тип привода.
+        /// </summary>
+        public DriveTypeEnum DriveType { get; set; }
     }
 }

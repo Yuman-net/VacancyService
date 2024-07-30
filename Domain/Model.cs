@@ -14,6 +14,6 @@ namespace Domain
         /// <summary>
         /// Марка автомобиля.
         /// </summary>
-        public Brand Brand { get ; set; }
+        public Brand Brand { get; set; }
     }
 }
