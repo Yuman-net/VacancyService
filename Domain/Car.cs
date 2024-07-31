@@ -18,11 +18,6 @@ namespace Domain
         public Brand Brand { get; set; }
 
         /// <summary>
-        /// Модель автомобиля.
-        /// </summary>
-        public Model Model { get; set; }
-
-        /// <summary>
         /// Статус ДТП.
         /// </summary>
         public bool? HasCrached { get; set; }

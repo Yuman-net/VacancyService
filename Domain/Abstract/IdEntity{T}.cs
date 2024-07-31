@@ -11,5 +11,9 @@ namespace Domain.Abstract
     public abstract class IdEntity<T>
         where T : struct
     {
+        /// <summary>
+        /// Идентификатор сущности.
+        /// </summary>
+        public T Id { get; set; }
     }
 }

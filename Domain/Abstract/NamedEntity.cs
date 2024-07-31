@@ -9,5 +9,9 @@ namespace Domain.Abstract
     /// </summary>
     public abstract class NamedEntity : IdEntity
     {
+        /// <summary>
+        /// Название сущности.
+        /// </summary>
+        public string Name { get; set; }
     }
 }
