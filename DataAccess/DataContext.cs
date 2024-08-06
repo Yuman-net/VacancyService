@@ -4,6 +4,7 @@
 
 namespace DataAccess
 {
+    using System.Reflection;
     using Domain;
     using Microsoft.EntityFrameworkCore;
 
@@ -16,7 +17,7 @@ namespace DataAccess
         /// Инициализирует новый экземпляр класса <see cref="DataContext"/>.
         /// </summary>
         /// <param name="options"> Опции контекста. </param>
-        public DataContext(DbContextOptions<DbContext> options)
+        public DataContext(DbContextOptions<DataContext> options)
             : base(options)
         {
         }
@@ -35,5 +36,11 @@ namespace DataAccess
         /// Модели.
         /// </summary>
         public DbSet<Model> Models { get; set; }
+
+        /// <inheritdoc/>
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        }
     }
 }
