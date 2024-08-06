@@ -7,7 +7,9 @@ namespace Models.Abstract
     /// <summary>
     /// Модель с идентификатором.
     /// </summary>
-    public abstract class IdModel : IdModel<Guid>
+    public abstract class IdModel : IIdModel
     {
+        /// <inheritdoc/>
+        public Guid Id { get; set; }
     }
 }
