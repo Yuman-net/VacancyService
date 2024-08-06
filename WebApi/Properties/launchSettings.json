@@ -18,6 +18,16 @@
         "ASPNETCORE_URLS": "http://localhost:5140"
       },
       "distributionName": ""
+    },
+    "WebApi": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://localhost:5000",
+      "dotnetRunMessages": true
     }
   }
 }

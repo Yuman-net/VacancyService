@@ -2,10 +2,15 @@
 // Copyright (c) Andrey Nikolaev. All rights reserved.
 // </copyright>
 
-using DataAccess.Extensions;
-
 namespace WebApi
 {
+    using DataAccess.Extensions;
+    using Microsoft.OpenApi.Models;
+    using WebApi.Profiles;
+
+    /// <summary>
+    /// Класс, описывающий точку входа.
+    /// </summary>
     public class Program
     {
         /// <summary>
@@ -17,12 +22,26 @@ namespace WebApi
             var builder = WebApplication.CreateBuilder(args);
 
             _ = builder.Services.AddDataAccess(builder.Configuration);
+            _ = builder.Services.AddAutoMapper();
+            _ = builder.Services.AddControllers();
+            _ = builder.Services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("v1", new OpenApiInfo { Title = $"Yuman.Car", Version = "v1" });
+                var xmlFiles = Directory.GetFiles(AppContext.BaseDirectory, "*.xml");
+                foreach (var xmlFile in xmlFiles)
+                {
+                    options.IncludeXmlComments(xmlFile);
+                }
+            });
 
             var app = builder.Build();
-
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Api v1"));
             app.UseRouting();
 
-            app.UseEndpoints(endpoint => endpoint.MapControllers());
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
         }
     }
 }
