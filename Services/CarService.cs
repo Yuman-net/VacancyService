@@ -27,6 +27,8 @@ namespace Services
         public override IQueryable<Car> GetAll(bool track = false)
         {
             var query = this.DataContext.Cars
+                .Include(s => s.Brand)
+                    .ThenInclude(s => s.Models)
                 .AsSingleQuery();
 
             return track

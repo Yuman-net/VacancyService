@@ -35,7 +35,7 @@ namespace DataAccess
         /// <summary>
         /// Модели.
         /// </summary>
-        public DbSet<Model> Models { get; set; }
+        public DbSet<ModelType> Models { get; set; }
 
         /// <inheritdoc/>
         protected override void OnModelCreating(ModelBuilder modelBuilder)

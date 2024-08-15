@@ -25,6 +25,8 @@ namespace DataAccess.Configuration
             builder.Property(entity => entity.TransmissionType);
 
             builder.HasOne(entity => entity.Brand).WithMany();
+
+            builder.Navigation(entity => entity.Brand).AutoInclude();
         }
     }
 }

@@ -10,7 +10,7 @@ namespace WebApi.Profiles
     using Models;
 
     /// <summary>
-    /// Профиль, настраивающий правила отображения из <see cref="Car"/> в <see cref="CarModel"/> и обратно.
+    /// Профиль, настраивающий правила отображения из <see cref="Car"/> в <see cref="Models.CarModel"/> и обратно.
     /// </summary>
     public sealed class CarProfile : Profile
     {
@@ -19,7 +19,7 @@ namespace WebApi.Profiles
         /// </summary>
         public CarProfile()
         {
-            this.CreateMap<CarModel, Car>()
+            this.CreateMap<Models.CarModel, Car>()
                 .ForMember(d => d.Id, ops => ops.MapFrom(s => s.Id))
                 .ForMember(d => d.Brand, ops => ops.MapFrom(s => s.Brand))
                 .ForMember(d => d.DriveType, ops => ops.MapFrom(s => (DriveTypeEnum)s.DriveType))

@@ -4,6 +4,7 @@
 
 namespace WebApi.Abstract
 {
+    using System.Linq.Expressions;
     using AutoMapper;
     using DataAccess;
     using Domain.Abstract;
@@ -64,6 +65,7 @@ namespace WebApi.Abstract
         /// </list>
         /// </returns>
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(Guid))]
         public async virtual Task<IActionResult> GetId([FromRoute] Guid id)
         {
             var entity = await this.Service.GetIdAsync(id);
@@ -76,6 +78,19 @@ namespace WebApi.Abstract
             var model = this.Mapper.Map<TOutModel>(entity);
 
             return this.Ok(model);
+        }
+
+        /// <summary>
+        /// Получает все сущности.
+        /// </summary>
+        /// <returns>
+        /// <c>200</c> и коллекция сущностей.
+        /// </returns>
+        [HttpGet("get-all")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public virtual IActionResult Index()
+        {
+            return this.Ok(this.Mapper.ProjectTo(this.Service.GetAll(), null, Array.Empty<Expression<Func<TOutModel, object>>>()));
         }
     }
 }

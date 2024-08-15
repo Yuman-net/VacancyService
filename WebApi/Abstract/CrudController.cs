@@ -7,11 +7,8 @@ namespace WebApi.Abstract
     using System.Net.Mime;
     using AutoMapper;
     using DataAccess;
-    using Domain;
     using Domain.Abstract;
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.EntityFrameworkCore.Metadata.Conventions;
-    using Models;
     using Models.Abstract;
     using Services.Abstract;
 
@@ -21,9 +18,8 @@ namespace WebApi.Abstract
     /// <typeparam name="TEntity"> Целевая сущность. </typeparam>
     /// <typeparam name="TInModel"> Входная модель. </typeparam>
     /// <typeparam name="TOutModel"> Выходная модель. </typeparam>
-    [ApiController]
+    /// <typeparam name="TService"> Целевой сервис. </typeparam>
     [Produces(MediaTypeNames.Application.Json)]
-
     public abstract class CrudController<TEntity, TInModel, TOutModel, TService>
         : ReadOnlyController<TEntity, TInModel, TOutModel, TService>
         where TEntity : class, IIdEntity
@@ -42,14 +38,64 @@ namespace WebApi.Abstract
         {
         }
 
+        /// <summary>
+        /// Создание сущности по входной модели.
+        /// </summary>
+        /// <param name="model"> Входная модель. </param>
+        /// <returns>
+        /// <c>200</c> и выходная модель.
+        /// </returns>
         [HttpPost("create")]
-        public async Task<IActionResult> Create([FromBody] TInModel model)
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public virtual async Task<IActionResult> Create([FromBody] TInModel model)
         {
             var entity = this.Mapper.Map<TEntity>(model);
 
             await this.Service.CreateAsync(entity);
 
-            return this.Ok(entity);
+            var result = this.Mapper.Map<TOutModel>(entity);
+
+            return this.Ok(result);
+        }
+
+        /// <summary>
+        /// Обновление сущности.
+        /// </summary>
+        /// <param name="model"> Модель с обновленными полями. </param>
+        /// <returns>
+        /// <c>200</c> и модель обновленной сущности.
+        /// </returns>
+        [HttpPost("update")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public virtual async Task<IActionResult> Update([FromBody] TInModel model)
+        {
+            var entity = this.Mapper.Map<TEntity>(model);
+
+            _ = await this.Service.UpdateAsync(entity);
+
+            var result = this.Mapper.Map<TOutModel>(entity);
+
+            return this.Ok(result);
+        }
+
+        /// <summary>
+        /// Удаляет сущность по идентификатору.
+        /// </summary>
+        /// <param name="id"> Идентификатор сущности. </param>
+        /// <returns>
+        /// <list type="table">
+        /// <item><c>200</c> и идентификатор сущности. </item>
+        /// <item><c>404</c> и идентификатор сущности. </item>
+        /// </list>
+        /// </returns>
+        [HttpDelete("id")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Guid))]
+        [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(Guid))]
+        public virtual async Task<IActionResult> Delete([FromRoute] Guid id)
+        {
+            var result = await this.Service.DeleteAsyns(id);
+
+            return result ? this.Ok(id) : this.NotFound(id);
         }
     }
 }

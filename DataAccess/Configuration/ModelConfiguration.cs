@@ -9,12 +9,12 @@ namespace DataAccess.Configuration
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
     /// <summary>
-    /// Конфигуратор сущности <see cref="Model"/>.
+    /// Конфигуратор сущности <see cref="ModelType"/>.
     /// </summary>
-    public sealed class ModelConfiguration : EntityConfiguration<Model>
+    public sealed class ModelConfiguration : EntityConfiguration<ModelType>
     {
         /// <inheritdoc/>
-        public override void Configure(EntityTypeBuilder<Model> builder)
+        public override void Configure(EntityTypeBuilder<ModelType> builder)
         {
             base.Configure(builder);
         }

@@ -26,5 +26,12 @@ namespace Services.Abstract
         /// <param name="id"> Идентификатор сущности. </param>
         /// <returns> Найденная сущность. </returns>
         public Task<TEntity?> GetIdAsync(Guid id);
+
+        /// <summary>
+        /// Получение всех сущностей.
+        /// </summary>
+        /// <param name="track"> Статус необходимости отслеживания сущности. </param>
+        /// <returns> Коллекция сущностей. </returns>
+        public IQueryable<TEntity> GetAll(bool track = false);
     }
 }

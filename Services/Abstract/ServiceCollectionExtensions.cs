@@ -18,7 +18,9 @@ namespace Services.Abstract
         /// <returns> Обновленная коллекция сервисов. </returns>
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
-            return services.AddScoped<ICarService, CarService>();
+            return services
+                .AddScoped<ICarService, CarService>()
+                .AddScoped<IBrandService, BrandService>();
         }
     }
 }

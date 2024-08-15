@@ -1,4 +1,4 @@
-﻿// <copyright file="CarController.cs" company="Andrey Nikolaev">
+﻿// <copyright file="BrandController.cs" company="Andrey Nikolaev">
 // Copyright (c) Andrey Nikolaev. All rights reserved.
 // </copyright>
 
@@ -14,22 +14,22 @@ namespace WebApi.Controllers
     using WebApi.Abstract;
 
     /// <summary>
-    /// Контроллер для работы с автомбилями.
+    /// Контроллер по работе с брендами автомобилей.
     /// </summary>
     [ApiController]
     [Produces(MediaTypeNames.Application.Json)]
-    [Route(CarController.RouteUrl)]
-    public sealed class CarController : CrudController<Car, CarModel, CarModel, ICarService>
+    [Route(BrandController.RouteUrl)]
+    public sealed class BrandController : CrudController<Brand, BrandModel, BrandModel, IBrandService>
     {
-        private const string RouteUrl = "api/cars";
+        private const string RouteUrl = "api/brands";
 
         /// <summary>
-        /// Инициализирует новый экземпляр класса <see cref="CarController"/>.
+        /// Инициализирует новый экземпляр класса <see cref="BrandController"/>.
         /// </summary>
         /// <param name="dataContext"> Конекст базы данных. </param>
         /// <param name="service"> Целевой сервис. </param>
         /// <param name="mapper"> Маппер. </param>
-        public CarController(DataContext dataContext, ICarService service, IMapper mapper)
+        public BrandController(DataContext dataContext, IBrandService service, IMapper mapper)
             : base(dataContext, service, mapper)
         {
         }

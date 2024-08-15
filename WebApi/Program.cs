@@ -6,6 +6,7 @@ namespace WebApi
 {
     using DataAccess.Extensions;
     using Microsoft.OpenApi.Models;
+    using Services.Abstract;
     using WebApi.Profiles;
 
     /// <summary>
@@ -24,6 +25,7 @@ namespace WebApi
             _ = builder.Services.AddDataAccess(builder.Configuration);
             _ = builder.Services.AddAutoMapper();
             _ = builder.Services.AddControllers();
+            _ = builder.Services.AddServices();
             _ = builder.Services.AddSwaggerGen(options =>
             {
                 options.SwaggerDoc("v1", new OpenApiInfo { Title = $"Yuman.Car", Version = "v1" });
@@ -35,6 +37,13 @@ namespace WebApi
             });
 
             var app = builder.Build();
+
+            if (app.Environment.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
+            app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Api v1"));
             app.UseRouting();
 
@@ -42,6 +51,8 @@ namespace WebApi
             {
                 endpoints.MapControllers();
             });
+
+            app.Run();
         }
     }
 }
