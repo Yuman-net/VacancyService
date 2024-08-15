@@ -19,6 +19,6 @@ namespace Domain
         /// <summary>
         /// Коллекция моделей.
         /// </summary>
-        public ISet<Model> Models { get; set; } = new HashSet<Model>();
+        public ISet<ModelType> Models { get; set; } = new HashSet<ModelType>();
     }
 }

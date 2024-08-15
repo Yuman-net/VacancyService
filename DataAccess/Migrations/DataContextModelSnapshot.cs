@@ -73,16 +73,13 @@ namespace DataAccess.Migrations
                     b.ToTable("Cars");
                 });
 
-            modelBuilder.Entity("Domain.Model", b =>
+            modelBuilder.Entity("Domain.ModelType", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<Guid>("BrandId")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("BrandId1")
+                    b.Property<Guid?>("BrandId")
                         .HasColumnType("uuid");
 
                     b.Property<string>("Name")
@@ -92,8 +89,6 @@ namespace DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("BrandId");
-
-                    b.HasIndex("BrandId1");
 
                     b.ToTable("Models");
                 });
@@ -113,21 +108,11 @@ namespace DataAccess.Migrations
                     b.Navigation("Brand");
                 });
 
-            modelBuilder.Entity("Domain.Model", b =>
+            modelBuilder.Entity("Domain.ModelType", b =>
                 {
                     b.HasOne("Domain.Brand", null)
                         .WithMany("Models")
-                        .HasForeignKey("BrandId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Domain.Brand", "Brand")
-                        .WithMany()
-                        .HasForeignKey("BrandId1")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Brand");
+                        .HasForeignKey("BrandId");
                 });
 
             modelBuilder.Entity("Domain.Brand", b =>

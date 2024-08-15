@@ -1,18 +1,18 @@
-﻿// <copyright file="IdModel{T}.cs" company="Andrey Nikolaev">
+﻿// <copyright file="IIdEntity{T}.cs" company="Andrey Nikolaev">
 // Copyright (c) Andrey Nikolaev. All rights reserved.
 // </copyright>
 
-namespace Models.Abstract
+namespace Domain.Abstract
 {
     /// <summary>
-    /// Модель с идентификатором.
+    /// Сущность с идентификатором.
     /// </summary>
     /// <typeparam name="T"> Тип идентификатора. </typeparam>
-    public abstract class IdModel<T>
+    public interface IIdEntity<T>
         where T : struct
     {
         /// <summary>
-        /// Идентификатор.
+        /// Идентификатор сущности.
         /// </summary>
         public T Id { get; set; }
     }
