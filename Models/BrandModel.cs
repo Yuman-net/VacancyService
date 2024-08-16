@@ -14,6 +14,6 @@ namespace Models
         /// <summary>
         /// Коллекция моделей у марки.
         /// </summary>
-        public ISet<CarModelModel> CarModels { get; set; } = new HashSet<CarModelModel>();
+        public ISet<ModelTypeModel> CarModels { get; set; } = new HashSet<ModelTypeModel>();
     }
 }

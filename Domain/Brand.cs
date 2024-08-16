@@ -12,11 +12,6 @@ namespace Domain
     public sealed class Brand : NamedEntity
     {
         /// <summary>
-        /// Коллекция автомобилей.
-        /// </summary>
-        public ISet<Car> Cars { get; set; } = new HashSet<Car>();
-
-        /// <summary>
         /// Коллекция моделей.
         /// </summary>
         public ISet<ModelType> Models { get; set; } = new HashSet<ModelType>();

@@ -19,7 +19,7 @@ namespace WebApi.Controllers
     [ApiController]
     [Produces(MediaTypeNames.Application.Json)]
     [Route(CarModelController.RouteUrl)]
-    public sealed class CarModelController : CrudController<ModelType, CarModelModel, CarModelModel, ICarModelService>
+    public sealed class CarModelController : CrudController<ModelType, ModelTypeModel, ModelTypeModel, ICarModelService>
     {
         private const string RouteUrl = "api/car-models";
 
