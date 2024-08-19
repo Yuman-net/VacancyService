@@ -1,0 +1,36 @@
+name: vacancyService
+
+on:
+  push:
+    branched:
+      - '*' #Включает все ветки.
+    pull_request: #Запускает на всех pull request
+      branches:
+        - '*'
+  
+jobs:
+  build:
+    runs-on: ububtu-latest
+    
+    steps:
+      - name: Check code
+        uses: actions/checkout@v2
+        
+      - name: Install .net
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '9.0.x'
+          
+      - name: DI
+        run: dotnet restore
+        
+      - name: Build project
+        run: dotnet build --configuration Release --no-restore
+        
+      - name: Run tests
+        run: dotnet test --configuration Release --no-build --verbosity normal
+        
+      - name: Publish
+        run: dotnet publish --configuration Release --output ./output
+      
+      
