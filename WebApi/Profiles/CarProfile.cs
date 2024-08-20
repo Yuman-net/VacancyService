@@ -19,7 +19,7 @@ namespace WebApi.Profiles
         /// </summary>
         public CarProfile()
         {
-            this.CreateMap<Models.CarModel, Car>()
+            this.CreateMap<CarModel, Car>()
                 .ForMember(d => d.Id, ops => ops.MapFrom(s => s.Id))
                 .ForMember(d => d.Brand, ops => ops.MapFrom(s => s.Brand))
                 .ForMember(d => d.DriveType, ops => ops.MapFrom(s => (DriveTypeEnum)s.DriveType))
@@ -27,7 +27,17 @@ namespace WebApi.Profiles
                 .ForMember(d => d.TransmissionType, ops => ops.MapFrom(s => (TransmissionTypeEnum)s.TransmissionType))
                 .ForMember(d => d.HasCrached, ops => ops.MapFrom(s => s.HasCrached))
                 .ForMember(d => d.CountOwners, ops => ops.MapFrom(s => s.CountOwners))
-                .ReverseMap();
+                .ForMember(d => d.AirConditioningSystemType, ops => ops.MapFrom(s => s.AirConditioningSystemType));
+
+            this.CreateMap<Car, CarModel>()
+                .ForMember(d => d.Id, ops => ops.MapFrom(s => s.Id))
+                .ForMember(d => d.Brand, ops => ops.MapFrom(s => s.Brand))
+                .ForMember(d => d.DriveType, ops => ops.MapFrom(s => (int)s.DriveType))
+                .ForMember(d => d.BodyType, ops => ops.MapFrom(s => (int)s.BodyType))
+                .ForMember(d => d.TransmissionType, ops => ops.MapFrom(s => (int)s.TransmissionType))
+                .ForMember(d => d.HasCrached, ops => ops.MapFrom(s => s.HasCrached))
+                .ForMember(d => d.CountOwners, ops => ops.MapFrom(s => s.CountOwners))
+                .ForMember(d => d.AirConditioningSystemType, ops => ops.MapFrom(s => s.AirConditioningSystemType));
         }
     }
 }

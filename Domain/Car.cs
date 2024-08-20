@@ -41,5 +41,10 @@ namespace Domain
         /// Тип привода.
         /// </summary>
         public DriveTypeEnum DriveType { get; set; }
+
+        /// <summary>
+        /// Тип системы кондиционирования.
+        /// </summary>
+        public AirConditioningSystemType AirConditioningSystemType { get; set; }
     }
 }

@@ -21,13 +21,12 @@ namespace WebApi.Profiles
             this.CreateMap<BrandModel, Brand>()
                 .ForMember(d => d.Id, ops => ops.MapFrom(s => s.Id))
                 .ForMember(d => d.Name, ops => ops.MapFrom(s => s.Name))
-                .ForMember(d => d.Models, ops => ops.MapFrom(s => s.CarModels))
-                .ForMember(d => d.Cars, ops => ops.Ignore());
+                .ForMember(d => d.Models, ops => ops.MapFrom(s => s.CarModels));
 
             this.CreateMap<Brand, BrandModel>()
                 .ForMember(d => d.Id, ops => ops.MapFrom(s => s.Id))
                 .ForMember(d => d.Name, ops => ops.MapFrom(s => s.Name))
-                .ForMember(d => d.CarModels, ops => ops.MapFrom(s => s.Cars));
+                .ForMember(d => d.CarModels, ops => ops.MapFrom(s => s.Models));
         }
     }
 }

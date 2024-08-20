@@ -51,9 +51,9 @@ namespace WebApi.Abstract
         {
             var entity = this.Mapper.Map<TEntity>(model);
 
-            await this.Service.CreateAsync(entity);
+            var newEntity = await this.Service.CreateAsync(entity);
 
-            var result = this.Mapper.Map<TOutModel>(entity);
+            var result = this.Mapper.Map<TOutModel>(newEntity);
 
             return this.Ok(result);
         }
@@ -71,9 +71,9 @@ namespace WebApi.Abstract
         {
             var entity = this.Mapper.Map<TEntity>(model);
 
-            _ = await this.Service.UpdateAsync(entity);
+            var updatedEntity = await this.Service.UpdateAsync(entity);
 
-            var result = this.Mapper.Map<TOutModel>(entity);
+            var result = this.Mapper.Map<TOutModel>(updatedEntity);
 
             return this.Ok(result);
         }

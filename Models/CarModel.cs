@@ -9,7 +9,7 @@ namespace Models
     /// <summary>
     /// Автомобиль.
     /// </summary>
-    public sealed class CarModel : NamedModel
+    public sealed class CarModel : IdModel
     {
         /// <summary>
         /// Марка автомобиля.
@@ -40,5 +40,10 @@ namespace Models
         /// Тип привода.
         /// </summary>
         public int DriveType { get; set; }
+
+        /// <summary>
+        /// Тип система кондиционирования.
+        /// </summary>
+        public int AirConditioningSystemType { get; set; }
     }
 }

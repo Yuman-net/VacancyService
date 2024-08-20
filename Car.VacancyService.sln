@@ -15,6 +15,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "WebApi\WebApi.csp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{AD24BEAD-A07C-4584-A681-6639C2FB7E2D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.Tests", "Tests\WebApi.Tests\WebApi.Tests.csproj", "{5ACD2663-64CE-40CC-8BB8-21BD5E789777}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.Tests", "Tests\Services.Tests\Services.Tests\Services.Tests.csproj", "{8E677410-C9C7-48CF-B3FB-25835DA761B6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,9 +45,21 @@ Global
 		{1B93F7EA-4B65-4CCD-A1B1-EBC062BE1D80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B93F7EA-4B65-4CCD-A1B1-EBC062BE1D80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B93F7EA-4B65-4CCD-A1B1-EBC062BE1D80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5ACD2663-64CE-40CC-8BB8-21BD5E789777}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ACD2663-64CE-40CC-8BB8-21BD5E789777}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ACD2663-64CE-40CC-8BB8-21BD5E789777}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ACD2663-64CE-40CC-8BB8-21BD5E789777}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E677410-C9C7-48CF-B3FB-25835DA761B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E677410-C9C7-48CF-B3FB-25835DA761B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E677410-C9C7-48CF-B3FB-25835DA761B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E677410-C9C7-48CF-B3FB-25835DA761B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5ACD2663-64CE-40CC-8BB8-21BD5E789777} = {AD24BEAD-A07C-4584-A681-6639C2FB7E2D}
+		{8E677410-C9C7-48CF-B3FB-25835DA761B6} = {AD24BEAD-A07C-4584-A681-6639C2FB7E2D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4EFF067C-3966-40B4-A683-18ECD01F7C65}

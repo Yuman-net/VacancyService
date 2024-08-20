@@ -1,4 +1,4 @@
-﻿// <copyright file="CarModelModel.cs" company="Andrey Nikolaev">
+﻿// <copyright file="ModelTypeModel.cs" company="Andrey Nikolaev">
 // Copyright (c) Andrey Nikolaev. All rights reserved.
 // </copyright>
 
@@ -9,7 +9,7 @@ namespace Models
     /// <summary>
     /// Модель автомобиля.
     /// </summary>
-    public sealed class CarModelModel : NamedModel
+    public sealed class ModelTypeModel : NamedModel
     {
     }
 }
