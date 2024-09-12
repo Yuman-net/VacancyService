@@ -4,7 +4,7 @@
 
 namespace Models
 {
-    using Models.Abstract;
+    using Models.Abstractions;
 
     /// <summary>
     /// Марка автомобиля.

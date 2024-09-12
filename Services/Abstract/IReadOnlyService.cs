@@ -4,7 +4,7 @@
 
 namespace Services.Abstract
 {
-    using Domain.Abstract;
+    using Domain.Entities.Abstractions;
 
     /// <summary>
     /// Сервис по чтению данных из БД.

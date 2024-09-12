@@ -7,6 +7,7 @@ namespace WebApi
     using DataAccess.Extensions;
     using Microsoft.OpenApi.Models;
     using Services.Abstract;
+    using System.Reflection;
     using WebApi.Profiles;
 
     /// <summary>
@@ -21,7 +22,7 @@ namespace WebApi
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
+            builder.Configuration.AddUserSecrets(Assembly.GetExecutingAssembly(), true);
             _ = builder.Services.AddDataAccess(builder.Configuration);
             _ = builder.Services.AddAutoMapper();
             _ = builder.Services.AddControllers();

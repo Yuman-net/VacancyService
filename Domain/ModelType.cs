@@ -4,7 +4,7 @@
 
 namespace Domain
 {
-    using Domain.Abstract;
+    using Domain.Entities.Abstractions;
 
     /// <summary>
     /// Модель автомобиля.
