@@ -14,7 +14,8 @@ COPY ["DataAccess/DataAccess.csproj", "DataAccess/"]
 COPY ["Domain/Domain.csproj", "Domain/"]
 COPY ["Models/Models.csproj", "Models/"]
 COPY ["Services/Services.csproj", "Services/"]
-RUN dotnet restore "./WebApi/WebApi.csproj" --source https://nuget.pkg.github.com/Yuman-net/index.json
+RUN dotnet restore "./WebApi/WebApi.csproj" --source https://nuget.pkg.github.com/Yuman-net/index.json --name GitHub --username and.nik.dev@gmail.com --password ${{ secrets.PKG_SECRET }} --store-password-in-clear-text
+RUN dotnet restore "./WebApi/WebApi.csproj" --source "https://Yuman-net:${{ secrets.PKG_SECRET }}@nuget.pkg.github.com/Yuman-net/index.json"
 COPY . .
 WORKDIR "/src/WebApi"
 RUN dotnet build "./WebApi.csproj" -c $BUILD_CONFIGURATION -o /app/build
