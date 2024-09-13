@@ -43,13 +43,13 @@ namespace DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<int>("AirConditioningSystemType")
+                        .HasColumnType("integer");
+
                     b.Property<int>("BodyType")
                         .HasColumnType("integer");
 
                     b.Property<Guid>("BrandId")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid?>("BrandId1")
                         .HasColumnType("uuid");
 
                     b.Property<int>("CountOwners")
@@ -67,8 +67,6 @@ namespace DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("BrandId");
-
-                    b.HasIndex("BrandId1");
 
                     b.ToTable("Cars");
                 });
@@ -101,10 +99,6 @@ namespace DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.Brand", null)
-                        .WithMany("Cars")
-                        .HasForeignKey("BrandId1");
-
                     b.Navigation("Brand");
                 });
 
@@ -117,8 +111,6 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("Domain.Brand", b =>
                 {
-                    b.Navigation("Cars");
-
                     b.Navigation("Models");
                 });
 #pragma warning restore 612, 618
