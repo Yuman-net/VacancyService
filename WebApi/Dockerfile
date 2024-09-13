@@ -14,7 +14,7 @@ COPY ["DataAccess/DataAccess.csproj", "DataAccess/"]
 COPY ["Domain/Domain.csproj", "Domain/"]
 COPY ["Models/Models.csproj", "Models/"]
 COPY ["Services/Services.csproj", "Services/"]
-RUN dotnet restore "./WebApi/WebApi.csproj"
+RUN dotnet restore "./WebApi/WebApi.csproj" --source https://nuget.pkg.github.com/Yuman-net/index.json
 COPY . .
 WORKDIR "/src/WebApi"
 RUN dotnet build "./WebApi.csproj" -c $BUILD_CONFIGURATION -o /app/build
