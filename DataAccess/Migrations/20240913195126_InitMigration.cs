@@ -34,7 +34,7 @@ namespace DataAccess.Migrations
                     BodyType = table.Column<int>(type: "integer", nullable: false),
                     TransmissionType = table.Column<int>(type: "integer", nullable: false),
                     DriveType = table.Column<int>(type: "integer", nullable: false),
-                    BrandId1 = table.Column<Guid>(type: "uuid", nullable: true)
+                    AirConditioningSystemType = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -45,11 +45,6 @@ namespace DataAccess.Migrations
                         principalTable: "Brands",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Cars_Brands_BrandId1",
-                        column: x => x.BrandId1,
-                        principalTable: "Brands",
-                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -74,11 +69,6 @@ namespace DataAccess.Migrations
                 name: "IX_Cars_BrandId",
                 table: "Cars",
                 column: "BrandId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Cars_BrandId1",
-                table: "Cars",
-                column: "BrandId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Models_BrandId",

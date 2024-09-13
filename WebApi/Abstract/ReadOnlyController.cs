@@ -7,9 +7,9 @@ namespace WebApi.Abstract
     using System.Linq.Expressions;
     using AutoMapper;
     using DataAccess;
-    using Domain.Abstract;
+    using Domain.Entities.Abstractions;
     using Microsoft.AspNetCore.Mvc;
-    using Models.Abstract;
+    using Models.Abstractions;
     using Services.Abstract;
 
     /// <summary>

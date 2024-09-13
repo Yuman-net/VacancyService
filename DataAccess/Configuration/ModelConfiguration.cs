@@ -4,7 +4,7 @@
 
 namespace DataAccess.Configuration
 {
-    using DataAccess.Abstract;
+    using DataAccess.Abstractions;
     using Domain;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

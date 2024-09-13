@@ -5,7 +5,7 @@
 namespace Services.Abstract
 {
     using DataAccess;
-    using Domain.Abstract;
+    using Domain.Entities.Abstractions;
     using Microsoft.EntityFrameworkCore;
 
     /// <summary>

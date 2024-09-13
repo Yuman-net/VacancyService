@@ -5,8 +5,8 @@
 namespace WebApi.Profiles.Abstract
 {
     using AutoMapper;
-    using Domain.Abstract;
-    using Models.Abstract;
+    using Domain.Entities.Abstractions;
+    using Models.Abstractions;
 
     /// <summary>
     /// Профиль для настройки сущностией с идентификатором.
