@@ -40,6 +40,6 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         context: .
-        file: ./WebApi/Dockerfile
+        file: ../WebApi/Dockerfile
         push: true
-        tags: ghcr.io/yumna-net/vacancyservice:latest
+        tags: ghcr.io/yuman-net/vacancyservice:latest
