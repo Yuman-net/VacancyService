@@ -9,12 +9,14 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
+COPY ../NuGet.Config ./
 COPY ["WebApi/WebApi.csproj", "WebApi/"]
 COPY ["DataAccess/DataAccess.csproj", "DataAccess/"]
 COPY ["Domain/Domain.csproj", "Domain/"]
 COPY ["Models/Models.csproj", "Models/"]
 COPY ["Services/Services.csproj", "Services/"]
-RUN dotnet nuget add source https://nuget.pkg.github.com/Yuman-net/index.json --name GitHub --username and.nik.dev@gmail.com --password ${{ secrets.PKG_SECRET }} --store-password-in-clear-text
+
+
 RUN dotnet restore "./WebApi/WebApi.csproj"
 COPY . .
 WORKDIR "/src/WebApi"
