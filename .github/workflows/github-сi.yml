@@ -19,8 +19,12 @@ jobs:
       with:
         dotnet-version: '8.0.x'
         
-    ##- name: Restore dependencies
-    ##  run: dotnet restore
+    - name: Configure NuGet
+      run: |
+        dotnet nuget add source https://nuget.pkg.github.com/Yuman-net/index.json --name GitHub --username and.nik.dev@gmail.com --password ${{ secrets.PKG_SECRET }} --store-password-in-clear-text
+        
+    - name: Restore dependencies
+      run: dotnet restore
     
     - name: Build
       run: dotnet build --configuration Release ##--no-restore
