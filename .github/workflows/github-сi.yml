@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: TOKEN
+      run: echo "${{ secrets.TOKEN }}"
     - name: Checkout code
       uses: actions/checkout@v2
       
@@ -29,7 +31,7 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release ##--no-restore
       env:
-          NuGetPackageSourceCredentials_GitHub: Username=and.nik.dev@gmail.com;Password="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"
+          NuGetPackageSourceCredentials_GitHub: Username=and.nik.dev@gmail.com;Password="${{ secrets.TOKEN }}"
 
     - name: Run tests
       run: dotnet test --no-restore --verbosity normal
