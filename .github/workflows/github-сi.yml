@@ -68,7 +68,7 @@ jobs:
       with:
         host: "89.111.175.189"
         username: "root"
-        key: ${{ secrets.ServerKey }}
+        key: ${{ secrets.SERVER_NEW_SSH }}
         script: |
           if [ "$(docker ps -q -f name=vacancyService)" ]; then
               docker stop vacancyService
