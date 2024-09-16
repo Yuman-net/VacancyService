@@ -20,8 +20,8 @@ COPY ["Domain/Domain.csproj", "Domain/"]
 COPY ["Models/Models.csproj", "Models/"]
 COPY ["Services/Services.csproj", "Services/"]
 
-RUN echo "${NUGET_PASS}"
-RUN echo "${STRING111}"
+RUN echo $NUGET_PASS
+RUN echo $STRING111
 RUN echo "1111111111"
 RUN dotnet nuget add source "https://nuget.pkg.github.com/Yuman-net/index.json" --name "Yuman-net" --username and.nik.dev@gmail.com --password $NUGET_PASS
 RUN dotnet restore "./WebApi/WebApi.csproj"
