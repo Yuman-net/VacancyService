@@ -9,12 +9,12 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["NuGet.Config", "NuGet.Config"]
 COPY ["WebApi/WebApi.csproj", "WebApi/"]
 COPY ["DataAccess/DataAccess.csproj", "DataAccess/"]
 COPY ["Domain/Domain.csproj", "Domain/"]
 COPY ["Models/Models.csproj", "Models/"]
 COPY ["Services/Services.csproj", "Services/"]
+COPY ["NuGet.Config", "."]
 
 
 RUN dotnet restore "./WebApi/WebApi.csproj"
