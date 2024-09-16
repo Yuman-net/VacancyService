@@ -18,6 +18,10 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: '8.0.x'
+        
+    - name: Authenticate to GitHub Package Registry
+      run: nuget sources add -name "Yuman-net" -source "https://nuget.pkg.github.com/Yuman-net/index.json" -user "and.nik.dev@gmail.com" -password "${{ secrets.PKG_SECRET }}"
+
 
     - name: Restore dependencies
       run: dotnet restore
