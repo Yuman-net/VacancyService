@@ -52,5 +52,5 @@ jobs:
         file: ./WebApi/Dockerfile
         push: true
         tags: ghcr.io/yuman-net/vacancyservice:latest
-        env: |
+        build-arg: |
           NUGET_PASS: ${{ secrets.PKG_SECRET }}
