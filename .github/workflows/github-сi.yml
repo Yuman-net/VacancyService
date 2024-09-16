@@ -23,11 +23,13 @@ jobs:
       run: |
         dotnet nuget add source https://nuget.pkg.github.com/Yuman-net/index.json --name GitHub --username and.nik.dev@gmail.com --password ${{ secrets.PKG_SECRET }} --store-password-in-clear-text
         
-    - name: Restore dependencies
-      run: dotnet restore
+    ##- name: Restore dependencies
+      ##run: dotnet restore
     
     - name: Build
       run: dotnet build --configuration Release ##--no-restore
+      env:
+          NuGetPackageSourceCredentials_github: Username=${{ github.actor }};Password=${{ secrets.PKG_SECRET }}
 
     - name: Run tests
       run: dotnet test --no-restore --verbosity normal
