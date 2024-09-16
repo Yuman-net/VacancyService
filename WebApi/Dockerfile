@@ -1,7 +1,7 @@
 #See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
 ARG NUGET_PASS
-
+ARG STRING111
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 USER app
 WORKDIR /app
@@ -19,6 +19,7 @@ COPY ["Models/Models.csproj", "Models/"]
 COPY ["Services/Services.csproj", "Services/"]
 
 RUN echo $NUGET_PASS
+RUN echo $STRING111
 RUN dotnet nuget add source "https://nuget.pkg.github.com/Yuman-net/index.json" --name "Yuman-net" --username and.nik.dev@gmail.com --password $NUGET_PASS
 RUN dotnet restore "./WebApi/WebApi.csproj"
 COPY . .
