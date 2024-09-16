@@ -57,4 +57,4 @@ jobs:
 
     - name: Push Docker image
       run: |
-        docker push andnik98/vacancy:latest
+        docker push ghcr.io/yuman-net/vacancyservice:latest
