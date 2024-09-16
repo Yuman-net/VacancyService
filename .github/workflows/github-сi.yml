@@ -54,4 +54,7 @@ jobs:
         tags: ghcr.io/yuman-net/vacancyservice:latest
         build-args: |
           NUGET_PASS=${{ secrets.PKG_SECRET }}
-          STRING111=RESULT111
+
+    - name: Push Docker image
+      run: |
+        docker push andnik98/vacancy:latest
