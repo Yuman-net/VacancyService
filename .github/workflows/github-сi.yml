@@ -29,7 +29,7 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release ##--no-restore
       env:
-          NuGetPackageSourceCredentials_github: Username=${{ github.actor }};Password=${{ secrets.PKG_SECRET }}
+          NuGetPackageSourceCredentials_github: Username=and.nik.dev@gmail.com;Password=${{ secrets.PKG_SECRET }}
 
     - name: Run tests
       run: dotnet test --no-restore --verbosity normal
