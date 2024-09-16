@@ -30,8 +30,8 @@ jobs:
     
     - name: Build
       run: dotnet build --configuration Release ##--no-restore
-      env:
-          NuGetPackageSourceCredentials_GitHub: Username=and.nik.dev@gmail.com;Password="${{ secrets.PKG_SECRET }}"
+      ##env:
+        ##  NuGetPackageSourceCredentials_GitHub: Username=and.nik.dev@gmail.com;Password="${{ secrets.PKG_SECRET }}"
 
     - name: Run tests
       run: dotnet test --no-restore --verbosity normal
