@@ -74,6 +74,10 @@ jobs:
               docker stop vacancyService
               docker rm vacancyService
           fi
+          
+          echo "Pulling latest image..."
+          docker pull ghcr.io/yuman-net/vacancyservice:latest
+          
           docker run -d --name vacancyService -p 30005:30005 ghcr.io/yuman-net/vacancyservice:latest
 
     
