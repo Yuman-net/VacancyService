@@ -76,7 +76,9 @@ jobs:
               docker rm vacancyService
           fi
           
-          echo "Pulling latest image..."
+          echo ${{ secrets.PKG_SECRET }} | docker login ghcr.io -u and.nik.dev@gmail.com --password-stdin
+
+          
           docker pull ghcr.io/yuman-net/vacancyservice:latest
           
           docker run -d --name vacancyService -p 30005:30005 ghcr.io/yuman-net/vacancyservice:latest
