@@ -19,9 +19,6 @@ jobs:
       with:
         dotnet-version: '8.0.x'
         
-    - name: Authenticate to GitHub Package Registry
-      run: nuget sources add -name "Yuman-net" -source "https://nuget.pkg.github.com/Yuman-net/index.json" -user "and.nik.dev@gmail.com" -password "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA1TWP/YlOKUuZWCVS0h9fDwAAAAACAAAAAAAQZgAAAAEAACAAAADHOHwY3q6wR8GEfvH2c1XPQoM1TeOpgmv61NZsL5l7/gAAAAAOgAAAAAIAACAAAAB3OXY36VTaeBslNCBXkMn/TxgHskNf+qaj0xCXIeTUoDAAAABBINxkZVg+VmUi1CGqtgvFiSRjmMeAmadFB5+i6bsrRRIm0SxJ0K+xvrRneOVA5UZAAAAAq0LiPVZ26EePL6EPc0w2KBhqY03Ht8xzPW226fZjRbNuU/0VtW1hltkJL7AXLb7w5+hnpeTp9OWktVZBXCq+og=="
-
     - name: Restore dependencies
       run: dotnet restore
     
