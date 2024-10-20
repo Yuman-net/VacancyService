@@ -2,12 +2,12 @@
 // Copyright (c) Andrey Nikolaev. All rights reserved.
 // </copyright>
 
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-
 namespace DataAccess.Extensions
 {
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
+
     /// <summary>
     /// Класс с методами расшширениями для DataAccess.
     /// </summary>

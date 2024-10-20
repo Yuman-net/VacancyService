@@ -34,7 +34,7 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Brands");
+                    b.ToTable("Brands", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Car", b =>
@@ -68,7 +68,7 @@ namespace DataAccess.Migrations
 
                     b.HasIndex("BrandId");
 
-                    b.ToTable("Cars");
+                    b.ToTable("Cars", (string)null);
                 });
 
             modelBuilder.Entity("Domain.ModelType", b =>
@@ -88,7 +88,7 @@ namespace DataAccess.Migrations
 
                     b.HasIndex("BrandId");
 
-                    b.ToTable("Models");
+                    b.ToTable("Models", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Car", b =>

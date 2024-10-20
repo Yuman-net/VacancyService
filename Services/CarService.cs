@@ -29,7 +29,7 @@ namespace Services
             var query = this.DataContext.Cars
                 .Include(s => s.Brand)
                     .ThenInclude(s => s.Models)
-                .AsSingleQuery();
+                .AsSplitQuery();
 
             return track
                 ? query

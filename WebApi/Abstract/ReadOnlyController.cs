@@ -90,7 +90,8 @@ namespace WebApi.Abstract
         [ProducesResponseType(StatusCodes.Status200OK)]
         public virtual IActionResult Index()
         {
-            return this.Ok(this.Mapper.ProjectTo(this.Service.GetAll(), null, Array.Empty<Expression<Func<TOutModel, object>>>()));
+            var t = this.Service.GetAll();
+            return this.Ok(this.Service.GetAll().Select(s => this.Mapper.Map<TOutModel>(s)));
         }
     }
 }

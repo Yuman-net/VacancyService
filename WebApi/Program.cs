@@ -4,10 +4,10 @@
 
 namespace WebApi
 {
+    using System.Reflection;
     using DataAccess.Extensions;
     using Microsoft.OpenApi.Models;
     using Services.Abstract;
-    using System.Reflection;
     using WebApi.Profiles;
 
     /// <summary>
@@ -27,6 +27,7 @@ namespace WebApi
             _ = builder.Services.AddAutoMapper();
             _ = builder.Services.AddControllers();
             _ = builder.Services.AddServices();
+            _ = builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             _ = builder.Services.AddSwaggerGen(options =>
             {
                 options.SwaggerDoc("v1", new OpenApiInfo { Title = $"Yuman.Car", Version = "v1" });
